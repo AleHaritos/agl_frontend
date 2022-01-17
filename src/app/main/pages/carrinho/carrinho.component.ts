@@ -47,6 +47,10 @@ export class CarrinhoComponent implements OnInit {
     this.carrinho.map((cart: any) => {
       this.valorTotal = this.valorTotal + cart.valor * cart.quantidade
     })
+
+    this.verificou = true
+    this.valueButton = 'Finalizar Compra'
+    this.verificado = true
   }
 
   removerItem(item: any): void {
@@ -57,6 +61,10 @@ export class CarrinhoComponent implements OnInit {
     this.carrinho.map((cart: any) => {
       this.valorTotal = this.valorTotal + cart.valor * cart.quantidade
     })
+
+    this.verificou = true
+    this.valueButton = 'Finalizar Compra'
+    this.verificado = true
   }
 
   adicionar(item: any): void {
@@ -67,6 +75,10 @@ export class CarrinhoComponent implements OnInit {
     this.carrinho.map((cart: any) => {
       this.valorTotal = this.valorTotal + cart.valor * cart.quantidade
     })
+
+    this.verificou = true
+    this.valueButton = 'Finalizar Compra'
+    this.verificado = true
   }
 
   diminuir(item: any): void {
@@ -77,6 +89,10 @@ export class CarrinhoComponent implements OnInit {
     this.carrinho.map((cart: any) => {
       this.valorTotal = this.valorTotal + cart.valor * cart.quantidade
     })
+
+    this.verificou = true
+    this.valueButton = 'Finalizar Compra'
+    this.verificado = true
   }
 
 
