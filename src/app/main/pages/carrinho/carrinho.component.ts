@@ -12,7 +12,7 @@ import { Router } from '@angular/router';
   styleUrls: ['./carrinho.component.css']
 })
 export class CarrinhoComponent implements OnInit {
-
+  verificou: boolean = true;
   verificado!: boolean
   carrinho!: Carrinho[]
   valorTotal: number = 0
@@ -80,7 +80,6 @@ export class CarrinhoComponent implements OnInit {
 
 
   verificacaoEstoque(): void {
-
     this.verificado = true
 
     this.carrinho.forEach((produto: any) => {
@@ -91,13 +90,14 @@ export class CarrinhoComponent implements OnInit {
               this.verificado = true
             } else {
               this.verificado = false
+              this.verificou = false
               this.opservice.snackBar(`${produto.nome} está sem estoque`, true)
             }
           })
         
     })
 
-    if(this.verificado === true) {
+    if(this.verificou === true) {
     localStorage.setItem('valorTotal', this.valorTotal.toString())
 
     this.router.navigate(['/dados-entrega'])
