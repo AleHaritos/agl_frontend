@@ -129,7 +129,7 @@ backSlide(): void {
 
 monitorarTela(): void {
  
-  if (window.matchMedia("(min-width: 400px) and ( max-width: 749px )").matches) {
+  if (window.matchMedia("(min-width: 0px) and ( max-width: 749px )").matches) {
 
     this.sizeScreen = '400'
 
