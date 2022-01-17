@@ -1,0 +1,30 @@
+<div class="container">
+<mat-toolbar class="bar">
+<h2 class="barTitle">Destaques da Semana</h2>
+</mat-toolbar>
+ 
+
+<div class="div-container" *ngIf="produtos">
+    <mat-icon (click)="backSlide()">arrow_back_ios</mat-icon>
+<mat-card *ngFor="let produto of produtos | slice:inicio:fim; let i=index" class="card" matRipple >
+    <mat-card-header class="cardHeader">
+    <img class="imgCard" [src]="produto.url" alt="produto" mat-card-lg-image>
+    </mat-card-header>
+    <mat-card-content>
+    <h1 class="title">{{  produto.nome }}</h1>
+
+    <div class="subtitle">
+    <mat-card-subtitle>{{ produto.descricao }}</mat-card-subtitle>
+    </div>
+
+    <div class="valor">
+        <h2> {{ produto.valor | currency: 'BRL'}}</h2>
+    </div>   
+
+    <button class="btn" mat-raised-button routerLink="/ofertas/{{ produto.id }}">Comprar</button>
+   
+</mat-card-content>
+</mat-card>
+<mat-icon (click)="slideForward()">arrow_forward_ios</mat-icon>
+</div>
+</div>

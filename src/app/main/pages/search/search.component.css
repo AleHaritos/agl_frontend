@@ -1,0 +1,101 @@
+.container {
+    width: 60%;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+
+.component {
+    display: flex;
+    align-items: center;  
+    flex-direction: column;
+    /* height: 100vh; */
+    width: 100vw;
+    overflow-y: auto;
+}
+
+.card {
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+    min-height: 350px;
+    max-height: 350px;
+    min-width: 270px;
+    margin: 20px;
+}
+
+
+.container {
+    background-color: #d9d9d9;
+    height: 100vh;
+}
+
+.div-container {
+    display: flex;
+    align-items: center;
+}
+
+.imgCard {
+    margin: 5px 10px;
+}
+
+.cardHeader {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.title {
+    margin-top: 8px;
+    text-align: center;
+    font-weight: 600;
+}
+
+.valor {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin-top: 15px;
+}
+
+.valor h2 {
+    font-size: 1.5rem;
+    font-weight: 800;
+}
+
+.subtitle {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+mat-card-subtitle {
+    font-size: 0.9rem;
+}
+
+.btn{
+    background-color: black;
+    color: white;
+    width: 100%;
+}
+
+.btn:hover {
+    color: black;
+    background-color: white;
+}
+
+.valorPromo {
+    /* font-size: 0.9rem; */
+    font-weight: 800;
+    color: red;
+    text-decoration: line-through;
+}
+
+
+ .verMais {
+    position: relative;
+    bottom: 0;
+    display: flex;
+    justify-content: center;
+    margin-top: auto;
+}
+

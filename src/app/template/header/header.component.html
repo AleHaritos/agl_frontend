@@ -1,0 +1,117 @@
+<mat-toolbar class="toolbar">
+    <span *ngIf="responsive">
+        <button mat-icon-button>
+            <mat-icon class="menuIcon" (click)="toggleSideNav()" [@iconRotate]="estado">menu</mat-icon>
+        </button>
+    </span>
+
+    <span>
+        <img routerLink="/" class="animate__animated animate__flip img_logo" src="../../../assets/logos//AGL-logo1.png" alt="logo">
+    </span>
+    
+    <span class="pesquisa" *ngIf="responsive === false">
+        <form [formGroup]="forms">
+            <mat-form-field class="campo">
+                <mat-label>Pesquise um Produto:</mat-label>
+                <input type="text" (keyup)="whereLike()" formControlName="termo"
+                 matInput placeholder="Nome do produto" [matAutocomplete]="auto">          
+                     <mat-icon matSuffix class="search" (click)="search()">search</mat-icon>
+                <mat-autocomplete autoActiveFirstOption #auto="matAutocomplete">
+                    <mat-option *ngFor="let option of filteredOptions | async" routerLink="/ofertas/{{ option.id }}" [value]="option.nome">
+                        <mat-grid-list cols="4" rowHeight="100px">
+                          
+                            <mat-grid-tile colspan="1">
+                                <img class="imgOptions" [src]="option.url" alt="produto">
+                            </mat-grid-tile>
+
+                            <mat-grid-tile colspan="3"> 
+                                <h4>{{ option.nome }}</h4> 
+                            </mat-grid-tile>
+                        </mat-grid-list>
+
+                    </mat-option>
+                  </mat-autocomplete>
+            </mat-form-field>
+            </form>
+    </span>
+
+
+    <span>
+        <button mat-icon-button class="iconBtn">
+            <mat-icon class="icon" routerLink="/carrinho">shopping_cart</mat-icon>
+        </button>
+        <button mat-icon-button class="iconBtn" *ngIf="admin" [matMenuTriggerFor]="menu">
+            <mat-icon class="icon">admin_panel_settings</mat-icon>
+        </button>
+
+        <button mat-icon-button class="iconBtn" *ngIf="admin === false" [matMenuTriggerFor]="menu1">
+            <mat-icon class="icon">person</mat-icon>
+        </button>
+
+        <button mat-icon-button class="iconBtn" routerLink="/auth" *ngIf="admin === undefined">
+           <mat-icon class="icon">login</mat-icon>
+        </button>
+
+<mat-menu #menu="matMenu">
+  <a routerLink="/user-admin"><button mat-menu-item>Cadastro</button></a>
+  <a routerLink="/listagem"><button mat-menu-item>Listagem</button></a>
+  <a routerLink="/pedidos-historico"><button mat-menu-item>Registro de pedidos</button></a>
+  <a (click)="signOut()"><button mat-menu-item>Sair</button></a>
+</mat-menu>
+
+<mat-menu #menu1="matMenu">
+    <a routerLink="/user"><button mat-menu-item>Histórico de compra</button></a>
+  <a (click)="signOut()"><button mat-menu-item>Sair</button></a>
+</mat-menu>
+
+    </span>
+</mat-toolbar>
+
+
+<mat-toolbar class="secondBar" *ngIf="tiposProd && responsive === false">
+
+    <mat-nav-list class="list">
+        
+        <mat-divider [vertical]="true"></mat-divider>
+        <span *ngFor="let tp of tiposProd">
+
+            <mat-list-item class="itens" routerLink="/produtos/{{ tp.id }}" 
+            routerLinkActive="active-list-item" matRipple [matRippleColor]="color">{{ tp.descricaoTipo }}</mat-list-item>
+            
+        </span>
+   
+    </mat-nav-list> 
+</mat-toolbar>
+
+
+<mat-toolbar class="terceiraBar" *ngIf="responsive">
+    <form [formGroup]="forms">
+        <mat-form-field class="campo">
+            <mat-label>Pesquise um Produto:</mat-label>
+            <input type="text" (keyup)="whereLike()" formControlName="termo"
+             matInput placeholder="Nome do produto" [matAutocomplete]="auto">
+             <mat-icon matSuffix class="search" (click)="search()">search</mat-icon>
+            <mat-autocomplete autoActiveFirstOption #auto="matAutocomplete">
+                <mat-option *ngFor="let option of filteredOptions | async" routerLink="/ofertas/{{ option.id }}" [value]="option.nome">
+                    <mat-grid-list cols="4" rowHeight="100px">
+                      
+                        <mat-grid-tile colspan="1">
+                            <img class="imgOptions" [src]="option.url" alt="produto">
+                        </mat-grid-tile>
+
+                        <mat-grid-tile colspan="3"> 
+                            <h4>{{ option.nome }}</h4> 
+                        </mat-grid-tile>
+                    </mat-grid-list>
+
+                </mat-option>
+              </mat-autocomplete>
+        </mat-form-field>
+        </form>
+    
+</mat-toolbar>
+
+
+    <app-content [openSideNav]="openSideNav"></app-content>
+    
+    <!-- <app-footer></app-footer> -->

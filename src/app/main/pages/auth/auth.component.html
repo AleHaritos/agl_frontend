@@ -1,0 +1,81 @@
+<mat-card class="card" *ngIf="loginComponent">
+
+<mat-card-title class="title">Login</mat-card-title>
+<mat-divider></mat-divider>
+
+<form class="form" [formGroup]="formLogin" (ngSubmit)="login()">
+
+
+<mat-form-field class="field">
+    <mat-label>Email:</mat-label>
+    <input type="text" matInput placeholder="Email..." formControlName="email">
+    <mat-hint align="end">Ex: joao@gmail.com</mat-hint>
+    <mat-error>Campo está inválido</mat-error>
+</mat-form-field>
+
+<mat-form-field class="field">
+    <mat-label>Senha:</mat-label>
+    <input [type]="typeInput" matInput placeholder="Senha..." formControlName="senha" minlength="5">
+    <mat-icon class="icon" matSuffix (click)="togglePassword()">{{ iconPassword }}</mat-icon>
+    <mat-error>Campo está inválido</mat-error>
+</mat-form-field>
+
+<span class="stillNotRegister">
+    <p>Ainda não se registrou? <a class="linkRegister" (click)="loginComponent = false">Registrar</a></p>
+</span>
+
+<button class="loginButton" type="submit" mat-raised-button color="primary">Entrar</button>
+</form>
+
+
+</mat-card>
+
+
+
+<mat-card class="card2" *ngIf="!loginComponent">
+<mat-card-title class="title">Registrar</mat-card-title>
+<mat-divider></mat-divider>
+
+<form class="form" [formGroup]="formRegister" (ngSubmit)="register()">
+    <mat-form-field class="field">
+        <mat-label>Nome:</mat-label>
+        <input type="text" matInput placeholder="Nome..." formControlName="nome">
+    </mat-form-field>
+
+
+ <mat-form-field class="field">
+    <mat-label>Email:</mat-label>
+    <input type="text" matInput placeholder="Email..." formControlName="email">
+    <mat-hint align="end">Ex: joao@gmail.com</mat-hint>
+    <mat-error>Campo está inválido</mat-error>
+</mat-form-field>
+
+<mat-form-field class="field">
+    <mat-label>Senha:</mat-label>
+    <input [type]="typeInput" matInput placeholder="Senha..."  minlength="6" formControlName="senha">
+    <mat-icon class="icon" matSuffix (click)="togglePassword()">{{ iconPassword }}</mat-icon>
+    <mat-hint align="end">Mínimo 6 caractéres</mat-hint>
+    <mat-error>Campo está inválido</mat-error>
+</mat-form-field>
+
+<mat-form-field class="field">
+    <mat-label>Confirmação da Senha:</mat-label>
+    <input [type]="typeInput" matInput placeholder="Senha..."  minlength="6" formControlName="confirmacaoSenha">
+    <mat-icon class="icon" matSuffix (click)="togglePassword()">{{ iconPassword }}</mat-icon>
+    <mat-error>Campo está inválido</mat-error>
+</mat-form-field>
+
+<mat-form-field class="field">
+    <mat-label>Telefone:</mat-label>
+    <input type="text" matInput placeholder="Número..." minlength="6" formControlName="telefone">
+    <mat-hint align="end">Ex: 11912345678</mat-hint>
+</mat-form-field>
+
+<span class="haveAccount">
+    <p>Já possui conta? <a class="linkRegister" (click)="loginComponent = true">Login</a></p>
+</span>
+
+<button class="buttonRegister" mat-raised-button color="primary" type="submit">Registrar</button>
+</form>
+
+</mat-card>

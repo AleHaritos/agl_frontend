@@ -1,0 +1,114 @@
+<mat-grid-list class="grid" cols="4" rowHeight="18vh">
+
+<mat-grid-tile colspan="2" rowspan="4">
+
+
+    <div class="imgPrincipal" *ngIf="imagens">
+
+        <button (click)="back()" matTooltip="Voltar"  mat-icon-button>
+        <mat-icon class="icon">
+            arrow_back_ios
+        </mat-icon>
+    </button> 
+
+        <img [src]="imagens[indexImg].imagem" alt="imagem Principal">
+
+<button (click)="forward()" matTooltip="Avançar" mat-icon-button>
+        <mat-icon class="icon">
+            arrow_forward_ios
+        </mat-icon>
+</button>    
+
+    </div>
+
+</mat-grid-tile>
+
+<mat-grid-tile class="container3" colspan="2" rowspan="5">
+    
+    <div class="infoProduto" *ngIf="produto">
+        <h2 class="title">{{ produto.nome }}</h2>
+
+        <mat-divider></mat-divider>
+        
+        <mat-form-field appearance="outline" class="valueField" *ngIf="produto.promocao === false">
+            <mat-label>Valor:</mat-label>
+            <input type="text" matInput [value]="produto.valor | currency: 'BRL'" readonly="readonly">
+        </mat-form-field>
+
+        <div *ngIf="produto.promocao" class="valoresPromo">   
+            <span class="firstRow">
+                <h3 class="subvalor">De:</h3>   <h3 class="valorOri">{{ produto.valor | currency: 'BRL' }}</h3>
+            </span>    
+
+            <span class="secondRow">
+                <h3 class="subvalor2">Por Apenas:</h3>  <h3 class="valorPromo">{{ produto.valorpromocao | currency: 'BRL' }}</h3>
+            </span>
+              
+        </div>
+
+        <form [formGroup]="forms" class="forms">
+
+        <div class="radiobtns" *ngIf="estoque">
+            <mat-radio-group aria-label="Selecione o tamanho" formControlName="tamanho">
+                <mat-radio-button color="warn" class="radio" *ngFor="let e of estoque" [value]="e.tamanho">{{ e.tamanho }}</mat-radio-button>
+              </mat-radio-group>
+        </div>
+        
+        <div class="frete">
+
+        <mat-form-field appearance="outline" class="cepField">
+            <mat-label>Calcular Frete</mat-label>
+            <input type="text" matInput formControlName="cep" placeholder="Inserir Cep">
+            <mat-hint align="end">Ex: 12914142</mat-hint>
+            <mat-error>Cep inválido</mat-error>
+        </mat-form-field>
+
+        <div class="btnFrete">
+            <button mat-stroked-button color="primary" (click)="calcularFrete()">Calcular</button>
+        </div>
+
+        <div class="dadosFrete" *ngIf="frete">
+
+            <div class="freteSuccess" *ngIf="frete[0].Erro === '0'">            
+                    <h4>PAC à vista</h4>
+                    <h4>Valor: {{ frete[1].Valor }} </h4>
+                    <h4>Prazo de Entrega: {{ frete[1].PrazoEntrega }}</h4>           
+            </div>
+
+
+            <div class="freteFail" *ngIf="frete[0].Erro !== '0'">
+                Serviço Indisponível no momento
+                <br><br>
+                Será cobrado um valor padrão de R$10,00
+            </div>
+        </div>
+
+
+        </div>
+        </form>
+
+        <div class="addButtonDiv">
+            <button mat-raised-button class="addButton" (click)="adicionarCarrinho()">Adicionar ao Carrinho</button>
+        </div>
+
+    </div>
+
+</mat-grid-tile>
+
+
+<mat-grid-tile class="container2" colspan="2" rowspan="1">
+    
+    <div *ngIf="imagens">
+
+        <div class="imgs">
+            <mat-card class="cardImg" *ngFor="let img of imagens" (click)="find(img)" matRipple [ngClass]="img.active">
+                <img [src]=img.imagem alt="produto">
+            </mat-card>
+        </div>
+
+    </div>
+
+</mat-grid-tile>
+
+</mat-grid-list>
+

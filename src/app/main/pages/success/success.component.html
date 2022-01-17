@@ -1,0 +1,9 @@
+<mat-spinner class="spinner" *ngIf="!finalizado"></mat-spinner>
+
+<div class="success" *ngIf="finalizado">
+    <h3 class="title">Pedido Finalizado!</h3>
+
+    <mat-icon class="icon">check</mat-icon>
+
+    <button mat-stroked-button color="primary" routerLink="/">Voltar a tela principal</button>
+</div>

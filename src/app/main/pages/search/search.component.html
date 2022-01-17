@@ -1,0 +1,52 @@
+<div class="component">
+    <div *ngIf="produtos !== undefined" class="container">
+    
+        <mat-card *ngFor="let produto of produtos" class="card" matRipple >
+            <span *ngIf="produto.promocao === false">
+            <mat-card-header class="cardHeader">
+            <img class="imgCard" [src]="produto.url" alt="produto" mat-card-lg-image>
+            </mat-card-header>
+            <mat-card-content>
+            <h1 class="title">{{  produto.nome }}</h1>
+        
+            <div class="subtitle">
+            <mat-card-subtitle>{{ produto.descricao }}</mat-card-subtitle>
+            </div>
+        
+            <div class="valor">
+                <h2> {{ produto.valor | currency: 'BRL'}}</h2>
+            </div>   
+        
+            <button class="btn" routerLink="/ofertas/{{ produto.id }}" mat-raised-button>Comprar</button>
+           
+        </mat-card-content>
+    </span>
+            <span *ngIf="produto.promocao === true">
+                <mat-card-header class="cardHeader">
+                    <img class="imgCard" [src]="produto.url" alt="produto" mat-card-lg-image>
+                    </mat-card-header>
+                    <mat-card-content>
+                    <h1 class="title">{{  produto.nome }}</h1>
+                
+                    
+                    <div class="subtitle">
+                    <mat-card-subtitle class="valorPromo">{{ produto.valor | currency: 'BRL' }}</mat-card-subtitle>
+                    </div>
+                
+                    
+                    <div class="valor">
+                        <h2> {{ produto.valorpromocao | currency: 'BRL'}}</h2>
+                    </div>   
+                
+                    <button class="btn" routerLink="/ofertas/{{ produto.id }}" mat-raised-button>Comprar</button>
+                   
+                </mat-card-content>          
+    
+    </span>
+    </mat-card>
+    </div>
+    
+    </div>
+    <div class="verMais" *ngIf="verMais">
+        <button mat-raised-button color="primary" class="btnVermais" (click)="paginacao()">Ver mais</button>
+    </div>

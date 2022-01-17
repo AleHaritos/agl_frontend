@@ -1,0 +1,25 @@
+   <mat-sidenav-container class="container">
+
+        <mat-sidenav class="sidenav" fixedInViewport="true" [opened]="openSideNav" mode="side" fixedTopGap="173">
+            <mat-nav-list class="list" *ngIf="tiposProd">
+        
+                <span *ngFor="let tp of tiposProd">
+        
+                    <mat-list-item class="itens" routerLink="/produtos/{{ tp.id }}" 
+                    routerLinkActive="active-list-item" matRipple>{{ tp.descricaoTipo }}</mat-list-item>
+                    
+                </span>
+           
+            </mat-nav-list> 
+        </mat-sidenav>
+    
+    </mat-sidenav-container>
+
+
+    <div class="content">
+    <router-outlet></router-outlet>
+    </div>
+    
+
+
+

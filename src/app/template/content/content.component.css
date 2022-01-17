@@ -1,0 +1,27 @@
+.sidenav {
+    width: 300px;
+    background-color: #d9d9d9;
+}
+
+.content {
+    background-color: #d9d9d9;
+    color: #000;
+    display: flex;
+    justify-content: center;
+}
+
+.mat-drawer-container {
+    background-color: #d9d9d9;
+    color: #fff;
+}
+
+.itens {
+    font-weight: 500;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+@media(max-width: 500px) {
+    .sidenav {
+        width: 150px;
+    }
+}

@@ -1,0 +1,86 @@
+.card {
+    margin-top: 40px;
+    min-width: 200px;
+    min-height: 500px;
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+.campo {
+    margin-top: 30px;
+}
+
+.button {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin-left: 140px;
+}
+
+.space {
+    margin-right: 40px;
+}
+
+.space2 {
+    margin-left: 20px;
+    padding: 10px;
+}
+
+.btnAll {
+    margin-top: 200px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+
+.labelAll {
+    font-weight: bold;
+    text-align: center;
+}
+
+.btn {
+    position: absolute;
+    left: 153px;
+}
+
+.invisivel {
+    visibility: hidden;
+}
+
+.ordenar {
+    cursor: pointer;
+}
+
+.btnBack {
+    width: 100%;
+    display: flex;
+    margin-top: 30px;
+    justify-content: flex-end;
+}
+
+.ajuste {
+    text-decoration: none;
+    color: rgb(122, 116, 116);
+}
+
+.detalhes {
+    text-decoration: none;
+    color: rgba(51, 150, 84, 0.973);
+}
+
+.qtd {
+    text-decoration: none;
+    color: rgb(26, 58, 202);
+    padding: 10px;
+}
+
+.excluir {
+    text-decoration: none;
+    color: rgb(201, 25, 25);
+    padding: 10px;
+}

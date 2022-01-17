@@ -1,0 +1,7 @@
+<mat-card class="card" *ngIf="produto">
+    <mat-card-title class="title">Desativar</mat-card-title>
+    <mat-card-subtitle class="sub">{{ produto.nome }}</mat-card-subtitle>
+    
+
+    <button mat-raised-button color="warn" (click)="excluir()">Desativar Produto</button>
+</mat-card>

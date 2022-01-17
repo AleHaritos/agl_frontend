@@ -1,0 +1,81 @@
+/* Login */
+.card {
+    margin-top: 30px;
+    min-width: 400px;
+    min-height: 350px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.title {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+mat-divider {
+    margin-top: 40px;
+    width: 100%;
+}
+
+.form {
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex-wrap: wrap;
+    height: 100%;
+}
+
+.field {
+    width: 260px;
+    margin-top: 7px;
+}
+
+.icon {
+    cursor: pointer;
+}
+
+.loginButton {
+    position: absolute;
+    top: 300px;
+    width: 300px;
+}
+
+.stillNotRegister {
+    position: relative;
+    top: 30px;
+    right: 100px;
+}
+
+.linkRegister {
+    text-decoration: underline;
+    cursor: pointer;
+    color: rgb(43, 43, 192);
+}
+
+/* Register */
+
+.card2 {
+    margin-top: 30px;
+    min-width: 400px;
+    min-height: 500px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.buttonRegister {
+    position: absolute;
+    top: 470px;
+    width: 300px;
+}
+
+.haveAccount {
+    position: relative;
+    top: 30px;
+    right: 110px;
+}

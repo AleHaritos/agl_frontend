@@ -1,0 +1,30 @@
+<mat-card class="container">
+    <mat-card-title>Ajuste Produtos</mat-card-title>
+    <form class="form" [formGroup]="formulario" (ngSubmit)="salvar()">
+
+
+<div class="toggle">
+    <mat-label>Destaque?</mat-label>
+    <mat-slide-toggle formControlName="destaque"></mat-slide-toggle>
+</div>
+
+<div class="toggle">
+    <mat-label>Promoção?</mat-label>
+    <mat-slide-toggle formControlName="promocao"></mat-slide-toggle>
+</div>
+
+<div *ngIf="formulario.value.promocao">
+  <h4 class="valorOriginal">Valor Original: {{ produto.valor}}</h4>  
+
+<mat-form-field appearance="fill" class="field">
+    <mat-label>Valor do Produto em Promoção:</mat-label>
+    <input formControlName="valorpromocao"  type="text" matInput placeholder="Valor do Produto com promoção...">
+</mat-form-field>
+
+</div>
+
+<div class="btn">
+    <button type="submit" mat-raised-button color="primary">Salvar</button>
+</div>
+</form>
+</mat-card>

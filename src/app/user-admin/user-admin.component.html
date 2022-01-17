@@ -1,0 +1,119 @@
+<mat-spinner *ngIf="tiposProd === undefined"></mat-spinner>
+
+<div class="component">
+<mat-card class="container" *ngIf="tiposProd">
+<mat-card-title>Cadastro de roupas</mat-card-title>
+<form class="form" [formGroup]="formulario" (ngSubmit)="salvar()">
+
+    <mat-form-field appearance="fill" class="field">
+        <mat-label>Nome do Produto:</mat-label>
+        <input type="text" formControlName="nome" matInput placeholder="Nome do Produto...">
+        <mat-error>Campo Obrigatório</mat-error>
+        <mat-error>18 caractéres máximos</mat-error>
+    </mat-form-field>
+
+    <mat-form-field appearance="fill" class="field">
+        <mat-label>Valor do Produto:</mat-label>
+        <input type="text" formControlName="valor" matInput placeholder="Valor do Produto...">
+        <mat-error>Campo Obrigatório</mat-error>
+    </mat-form-field>
+
+    <mat-form-field appearance="fill" class="field">
+        <mat-label>Descrição do Produto:</mat-label>
+        <input type="text" matInput formControlName="descricao" placeholder="Descrição do Produto...">
+        <mat-error>35 caractéres máximos</mat-error>
+    </mat-form-field>
+
+    <div class="toggle">
+        <mat-label>Destaque?</mat-label>
+        <mat-slide-toggle formControlName="destaque"></mat-slide-toggle>
+    </div>
+
+    <div class="toggle">
+        <mat-label>Promoção?</mat-label>
+        <mat-slide-toggle formControlName="promocao"></mat-slide-toggle>
+    </div>
+    
+    <mat-form-field appearance="fill" class="field" *ngIf="formulario.value.promocao">
+        <mat-label>Valor do Produto em Promoção:</mat-label>
+        <input formControlName="valorpromocao"  type="text" matInput placeholder="Valor do Produto com promoção...">
+    </mat-form-field>
+
+    <mat-form-field appearance="fill" style="width: 70%;">
+        <mat-select formControlName="idTipo" placeholder="Tipo de Produto">
+        <mat-option *ngFor="let tipo of tiposProd" [value]="tipo.id">
+            {{ tipo.descricaoTipo }}
+        </mat-option>
+    </mat-select>
+    </mat-form-field>
+
+
+    <div class="btn">
+        <button type="submit" mat-raised-button color="primary">Salvar</button>
+    </div>
+</form>
+
+</mat-card>
+
+
+
+<mat-card class="cardTipo">
+    <mat-card-title>Cadastros tipo roupas</mat-card-title>
+    <form [formGroup]="formsTipoProd" class="formTipo" (ngSubmit)="cadastrarTipoProd()">
+        <mat-form-field appearance="fill" class="fieldTipo">
+            <mat-label>Nome da categoria do produto:</mat-label>
+            <input formControlName="descricaoTipo" type="text" matInput placeholder="Nome da categoria do produto">
+            <mat-error>Este campo é obrigatório</mat-error>
+        </mat-form-field>
+    
+        <button type="submit" class="btnTipo" mat-raised-button color="primary">Salvar</button>
+    </form>
+</mat-card>
+
+
+
+<mat-card class="cardTipo" style="margin-top: 40px; margin-bottom: 40px; min-height: 400px;">
+<mat-card-title class="title">Registrar ADM</mat-card-title>
+
+<form class="form" [formGroup]="formRegister" (ngSubmit)="register()">
+    <mat-form-field class="field">
+        <mat-label>Nome:</mat-label>
+        <input type="text" matInput placeholder="Nome..." formControlName="nome">
+    </mat-form-field>
+
+
+ <mat-form-field class="field">
+    <mat-label>Email:</mat-label>
+    <input type="text" matInput placeholder="Email..." formControlName="email">
+    <mat-hint align="end">Ex: joao@gmail.com</mat-hint>
+    <mat-error>Campo está inválido</mat-error>
+</mat-form-field>
+
+<mat-form-field class="field">
+    <mat-label>Senha:</mat-label>
+    <input [type]="typeInput" matInput placeholder="Senha..."  minlength="6" formControlName="senha">
+    <mat-icon class="icon" matSuffix (click)="togglePassword()">{{ iconPassword }}</mat-icon>
+    <mat-hint align="end">Mínimo 6 caractéres</mat-hint>
+    <mat-error>Campo está inválido</mat-error>
+</mat-form-field>
+
+<mat-form-field class="field">
+    <mat-label>Confirmação da Senha:</mat-label>
+    <input [type]="typeInput" matInput placeholder="Senha..."  minlength="6" formControlName="confirmacaoSenha">
+    <mat-icon class="icon" matSuffix (click)="togglePassword()">{{ iconPassword }}</mat-icon>
+    <mat-error>Campo está inválido</mat-error>
+</mat-form-field>
+
+<mat-form-field class="field">
+    <mat-label>Telefone:</mat-label>
+    <input type="text" matInput placeholder="Número..." minlength="6" formControlName="telefone">
+    <mat-hint align="end">Ex: 11912345678</mat-hint>
+</mat-form-field>
+
+<button class="btnRegister" type="submit" mat-raised-button color="primary">Cadastrar</button>
+</form>
+</mat-card>
+
+</div>
+
+

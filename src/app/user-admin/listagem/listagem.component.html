@@ -1,0 +1,188 @@
+<mat-card class="card" *ngIf="showTable === false && showTableAll === false">
+    <mat-card-title>Listagem dos Produtos</mat-card-title>
+
+    <form [formGroup]="forms">
+    <mat-form-field class="campo" appearance="fill">
+        <mat-label>Nome:</mat-label>
+        <input type="text" (keyup)="whereLike()" formControlName="termo"
+         matInput placeholder="Nome do produto" [matAutocomplete]="auto">
+
+        <mat-autocomplete autoActiveFirstOption #auto="matAutocomplete">
+            <mat-option *ngFor="let option of filteredOptions | async" [value]="option.nome">
+              {{ option.nome }}
+            </mat-option>
+          </mat-autocomplete>
+    </mat-form-field>
+    </form>
+
+    <div class="button">
+        <button mat-raised-button color="primary" (click)="exibirTabelaNome()">Buscar</button>
+
+    </div>
+
+    <div class="btnAll">
+      <h3 class="labelAll">Buscar todos produtos</h3>   
+     
+        <button mat-raised-button color="primary" (click)="exibirTabela()">Buscar Todos</button>   
+      
+    </div>
+</mat-card>
+
+
+
+<div *ngIf="showTable">
+    <table *ngIf="dataSource !== undefined" class="mat-elevation-z8" mat-table [dataSource]="dataSource">
+    
+    
+    <!-- Coluna ID -->
+    <ng-container matColumnDef="id">
+      <th mat-header-cell *matHeaderCellDef> ID </th>
+      <td mat-cell *matCellDef="let produto"> 
+          <span class="space">
+              {{ produto.id }} 
+          </span> 
+      </td>
+        </ng-container>
+      
+        <!-- Coluna nome -->
+        <ng-container matColumnDef="nome">
+            <th mat-header-cell *matHeaderCellDef> Nome </th>
+            <td mat-cell *matCellDef="let produto"> 
+                <span class="space">
+                    {{ produto.nome }} 
+                </span> 
+            </td>
+          </ng-container>
+        
+        
+           <!-- Coluna ajuste  -->
+           <ng-container matColumnDef="ajuste">
+            <th mat-header-cell *matHeaderCellDef  matTooltip="Ajustar destaque/promoção do Produto"> Ajuste </th>
+            <td mat-cell *matCellDef="let produto"> 
+                <a routerLink="/ajuste/{{ produto.id }}" class="space ajuste">
+                <mat-icon>build</mat-icon>
+                </a>
+            </td>
+          </ng-container>
+       
+        
+          <!-- Coluna mais  -->
+          <ng-container matColumnDef="mais">
+            <th mat-header-cell *matHeaderCellDef matTooltip="Ver detalhes"> Detalhes </th>
+            <td mat-cell *matCellDef="let produto"> 
+                <a routerLink="/detalhes/{{ produto.id }}" class="space detalhes">
+                <mat-icon>info</mat-icon>
+                </a>
+            </td>
+          </ng-container>
+    
+          <!-- Coluna ajustar quantidade  -->
+          <ng-container matColumnDef="qtd">
+            <th mat-header-cell *matHeaderCellDef matTooltip="Ajustar quantidade">Quantidade</th>
+            <td mat-cell *matCellDef="let produto"> 
+                <a routerLink="/repor-estoque/{{ produto.id }}" class="space qtd">
+                <mat-icon>add_circle_outline</mat-icon>
+                </a>
+            </td>
+          </ng-container>
+    
+          <!-- Coluna delete  -->
+          <ng-container matColumnDef="delete">
+            <th mat-header-cell *matHeaderCellDef class="space2" matTooltip="Desativar produto"> Desativar </th>
+            <td mat-cell *matCellDef="let produto" > 
+                <a routerLink="/delete/{{ produto.id }}"  class="excluir">
+                <mat-icon>power_settings_new</mat-icon>
+                </a>
+            </td>
+          </ng-container>
+        
+          <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+          <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+    <mat-paginator [pageSizeOptions]="[5, 10, 25]"
+                       showFirstLastButtons 
+                       aria-label="Selecione a página dos produtos">
+    </mat-paginator>
+    </div>
+
+
+    <div [ngClass]="showTableAll ? '' : 'invisivel' ">
+      <table *ngIf="dataSource !== undefined" mat-table [dataSource]="dataSource" >
+      
+      <!-- Coluna ID -->
+      <ng-container matColumnDef="id">
+        <th mat-header-cell *matHeaderCellDef class="ordenar"  
+        matTooltip="Ordenar os IDs" matTooltipPosition="left"
+        (click)="ordenar()"> ID </th>
+        <td mat-cell *matCellDef="let produto"> 
+            <span class="space">
+                {{ produto.id }} 
+            </span> 
+        </td>
+          </ng-container>
+        
+          <!-- Coluna nome -->
+          <ng-container matColumnDef="nome">
+              <th mat-header-cell *matHeaderCellDef> Nome </th>
+              <td mat-cell *matCellDef="let produto"> 
+                  <span class="space">
+                      {{ produto.nome }} 
+                  </span> 
+              </td>
+            </ng-container>
+          
+          
+             <!-- Coluna ajuste  -->
+             <ng-container matColumnDef="ajuste">
+              <th mat-header-cell *matHeaderCellDef  matTooltip="Ajustar destaque/promoção do Produto"> Ajuste </th>
+              <td mat-cell *matCellDef="let produto"> 
+                  <a routerLink="/ajuste/{{ produto.id }}" class="space ajuste">
+                  <mat-icon>build</mat-icon>
+                  </a>
+              </td>
+            </ng-container>
+         
+          
+            <!-- Coluna mais  -->
+            <ng-container matColumnDef="mais">
+              <th mat-header-cell *matHeaderCellDef matTooltip="Ver detalhes"> Detalhes </th>
+              <td mat-cell *matCellDef="let produto"> 
+                  <a routerLink="/detalhes/{{ produto.id }}" class="space detalhes">
+                  <mat-icon>info</mat-icon>
+                  </a>
+              </td>
+            </ng-container>
+      
+            <!-- Coluna ajustar quantidade  -->
+            <ng-container matColumnDef="qtd">
+              <th mat-header-cell *matHeaderCellDef matTooltip="Ajustar quantidade">Quantidade</th>
+              <td mat-cell *matCellDef="let produto"> 
+                  <a routerLink="/repor-estoque/{{ produto.id }}" class="space qtd">
+                  <mat-icon>add_circle_outline</mat-icon>
+                  </a>
+              </td>
+            </ng-container>
+      
+            <!-- Coluna delete  -->
+            <ng-container matColumnDef="delete">
+              <th mat-header-cell *matHeaderCellDef class="space2" matTooltip="Desativar produto"> Desativar </th>
+              <td mat-cell *matCellDef="let produto"> 
+                  <a routerLink="/delete/{{ produto.id }}" class="excluir">
+                  <mat-icon>power_settings_new</mat-icon>
+                  </a>
+              </td>
+            </ng-container>
+          
+            <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+            <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+      </table>
+      <mat-paginator [pageSizeOptions]="[5, 10, 25]"
+                         showFirstLastButtons 
+                         aria-label="Selecione a página dos produtos">
+      </mat-paginator>
+      </div>
+  
+
+      <div *ngIf="showTable === true || showTableAll === true" class="btnBack">
+        <button mat-raised-button color="primary" (click)="back()">Voltar</button>
+      </div>

@@ -1,0 +1,110 @@
+.bar {
+    height: 100px;
+    background: url('../../../../assets/black_gif.gif');
+    display: flex;
+    justify-content: center;
+}
+
+.bar h2 {
+    color: #FFF;
+}
+
+.card {
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+    height: 420px;
+    width: 270px;
+    margin: 20px;
+}
+
+.card-container {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+}
+
+.container {
+    background-color: #d9d9d9;
+    height: 530px;
+}
+
+.imgCard {
+    margin: 5px 10px;
+}
+
+.cardHeader {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.title {
+    margin-top: 8px;
+    text-align: center;
+    font-weight: 600;
+}
+
+.valor {
+    width: 100%;
+    display: flex;
+    justify-content: flex-start;
+    /* margin-top: 15px; */
+}
+
+.valor h2 {
+    font-size: 1.2rem;
+    font-weight: 800;
+    color: red;
+    text-decoration: line-through;
+}
+
+.valor h3 {
+    font-size: 1.1rem;
+    font-weight: 500;
+    padding-right: 10px;
+}
+
+
+.valorPromocao {
+    width: 100%;
+    display: flex;
+    justify-content: center; 
+}
+
+.valorPromocao h2 {
+    font-size: 1.5rem;
+    font-weight: 800;
+}
+
+.labelPromocao {
+    font-size: 1.1rem;
+    font-weight: 500;
+}
+
+.subtitle {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+mat-card-subtitle {
+    font-size: 0.9rem;
+}
+
+.btn{
+    background-color: black;
+    color: white;
+    width: 100%;
+}
+
+.btn:hover {
+    color: black;
+    background-color: white;
+}
+
+mat-icon {
+    cursor: pointer;
+}
+
+.barTitle {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}

@@ -1,0 +1,39 @@
+<mat-card class="card">
+
+    <mat-card-title>Dados da entrega</mat-card-title>
+
+    <form [formGroup]="forms">
+    <mat-form-field appearance="fill" class="field">
+        <mat-label>CEP:</mat-label>
+        <input type="text" maxlength="8" matInput placeholder="Insira o cep..." (keyup)="consultarCep()" formControlName="cep">
+        <mat-hint align="end">Ex: 12345678</mat-hint>
+    </mat-form-field>
+
+    <mat-form-field appearance="fill" class="field2">
+        <mat-label>Número:</mat-label>
+        <input type="text" matInput placeholder="Insira o numero..." formControlName="numero">     
+    </mat-form-field>
+
+    <mat-form-field appearance="fill" class="field2">
+        <mat-label>Valor Frete:</mat-label>
+        <input type="text" matInput readonly="readonly" [value]="valorFrete | currency: 'BRL'">     
+    </mat-form-field>
+
+    <mat-form-field appearance="fill" class="field">
+        <mat-label>Rua:</mat-label>
+        <input type="text" matInput readonly="readonly" [value]="rua || '' ">      
+    </mat-form-field>
+
+    <mat-form-field appearance="fill" class="field">
+        <mat-label>Bairro:</mat-label>
+        <input type="text" matInput readonly="readonly" [value]="bairro || '' ">      
+    </mat-form-field>
+
+    <mat-form-field appearance="fill" class="field">
+        <mat-label>Cidade:</mat-label>
+        <input type="text" matInput readonly="readonly" [value]="cidade || '' ">      
+    </mat-form-field>   
+</form>
+
+<button mat-raised-button class="btn" (click)="finalizarPedido()">Finalizar Pedido</button>
+</mat-card>

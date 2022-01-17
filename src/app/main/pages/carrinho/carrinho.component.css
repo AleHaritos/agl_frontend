@@ -1,0 +1,175 @@
+/* Carrinho vazio */
+
+.vazio {
+    width: 100%;
+    margin-top: 20vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.titleVazio {
+    color: rgb(63, 61, 61);
+}
+
+.icon {
+    color: rgb(63, 61, 61);
+    font-size: 5rem;
+    margin-right: 70px;
+    cursor: pointer;
+}
+
+.btnBack {
+    margin-top: 100px;
+    width: 100%;
+    color:rgb(63, 61, 61);;
+}
+
+
+/* Carrinho com itens  */
+
+.ocupado {
+    width: 90vw;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.title {
+    text-align: center;
+    margin-top: 30px;
+    font-weight: 500;
+}
+
+.grid {
+    width: 700px;
+    background-color: #FFF;
+}
+
+mat-card {
+    margin-top: 25px;
+}
+
+/* Imagem */
+
+.imgContainer {
+    width: 100%;
+}
+
+.imgContainer img {
+    width: 100px;
+    position: relative;
+    right: 60px;
+}
+
+.infos {
+    width: 100%;
+}
+
+.titleCarrinho {
+    position: absolute;
+    left: 0px;
+    bottom: 60px;
+}
+
+.subtitle {
+    position: absolute;
+    bottom: 35px;
+    left: 0px;
+}
+
+.subtitle3 {
+    position: absolute;
+    bottom: 0px;
+    left: 0px;
+}
+
+.subtitle2 {
+    position: absolute;
+}
+
+.tamanho {
+    position: absolute;
+    bottom: 60px;
+}
+
+.quantidade {
+    position: absolute;
+    bottom: 60px;
+    right: 40px;
+}
+
+.quantidadebtns {
+    position: absolute;
+    bottom: 30px;
+    right: 20px;
+    width: 28%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.titleQtd {
+    margin-top: 10px;
+}
+
+.remover {
+    position: absolute;
+    bottom: -20px;
+    right: 50px;
+    cursor: pointer;
+    color: red;
+}
+
+
+/*  Resumo do carrinho*/
+
+.resumo {
+    margin-top: 150px;
+    width: 700px;
+    display: flex;
+    flex-direction: column;
+    /* align-items: center; */
+    background-color: rgba(231, 231, 231, 0.801);
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px, rgba(0, 0, 0, 0.22) 0px 10px 10px;
+    margin-bottom: 40px;
+    border-radius: 15px;
+}
+
+.titleResumo {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.itensResumo {
+    position: relative;
+    left: 250px;
+}
+
+.qtdResumo {
+    position: absolute;
+    left: -50px;
+}
+
+.valorResumo {
+    position: absolute;
+    left: 190px;
+    bottom: 0px;
+}
+
+.divider {
+    position: absolute;
+    bottom: 100px;
+    width: 100%;
+    padding-bottom: 10px;
+}
+
+.valorTotal {
+    position: relative;
+    bottom: 0px;
+    left: 250px;
+}
+
+.btnComprar {
+    background-color: rgba(190, 26, 26, 0.918);
+}

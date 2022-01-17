@@ -1,0 +1,76 @@
+<div class="vazio" *ngIf="carrinho.length === 0">
+
+    <h1 class="titleVazio">O Carrinho está vazio!</h1>
+
+    <mat-icon class="icon" routerLink="/">shopping_cart</mat-icon>
+
+    <button mat-stroked-button class="btnBack" routerLink="/">Voltar as compras</button>
+</div>
+
+<div class="ocupado" *ngIf="carrinho.length > 0">
+
+    <h1 class="title">Carrinho de Compras</h1>
+
+    <mat-card *ngFor="let item of carrinho">
+    <mat-grid-list class="grid" cols="12" rowHeight="100px">
+
+       <mat-grid-tile class="imgContainer" colspan="4">
+            <img mat-card-md-image [src]="item.imagem" alt="produto">
+       </mat-grid-tile> 
+
+       <mat-grid-tile class="infos" colspan="8">
+            <h3 class="titleCarrinho">{{ item.nome }}</h3>
+            <mat-card-subtitle class="subtitle">{{ item.descricao }}</mat-card-subtitle>
+            <mat-card-subtitle class="subtitle3">{{ item.valor | currency: 'BRL'}}</mat-card-subtitle>
+
+
+            <h3 class="tamanho">Tamanho</h3>
+            <mat-card-subtitle class="subtitle2">{{ item.tamanho}}</mat-card-subtitle>
+
+
+            <h3 class="quantidade">Quantidade</h3>
+
+                <div class="quantidadebtns">
+                    
+                    <button mat-icon-button (click)="diminuir(item)">
+                        <mat-icon>remove</mat-icon>
+                      </button> 
+
+                      <h4 class="titleQtd">{{ item.quantidade }}</h4>
+
+                      <button mat-icon-button (click)="adicionar(item)">
+                        <mat-icon>add</mat-icon>
+                      </button> 
+                </div>
+
+                <h3 class="remover" (click)="removerItem(item)">Remover</h3>
+
+       </mat-grid-tile> 
+    
+    </mat-grid-list>
+ 
+</mat-card>
+
+<mat-card class="resumo" *ngIf="valorTotal !== 0">
+    <h1 class="titleResumo">Resumo do pedido</h1>
+    <span class="itensResumo" *ngFor="let item of carrinho">
+     <h3 class="qtdResumo">{{ item.quantidade }}x</h3>   
+     <h3> {{ item.nome }} : {{ item.tamanho }}</h3>
+     <h3 class="valorResumo">{{ item.valor * item.quantidade | currency: 'BRL'}}</h3>
+    </span>
+
+    <mat-divider class="divider"></mat-divider>
+    <h3 class="valorTotal">VALOR TOTAL: {{ valorTotal | currency: 'BRL'}} + FRETE </h3>
+
+    <button mat-raised-button class="btnComprar" (click)="verificacaoEstoque()">Finalizar Compra</button>
+</mat-card>
+
+
+</div>
+
+
+
+
+
+
+<!-- <button mat-raised-button (click)="limparCarrinho()">Limpar</button> -->

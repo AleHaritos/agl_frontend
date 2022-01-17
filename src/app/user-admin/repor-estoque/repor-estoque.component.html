@@ -1,0 +1,64 @@
+<mat-progress-spinner *ngIf="nomeProduto === undefined"></mat-progress-spinner>
+
+<mat-card class="container" *ngIf="nomeProduto && state">
+<mat-card-title>Reposição de estoque</mat-card-title>
+
+<h2>{{ nomeProduto }}</h2>
+<form [formGroup]="formulario" (ngSubmit)="atualizarEstoque()">
+
+    <mat-form-field appearance="fill" style="width: 70%;" class="field">
+        <mat-label>Quantidade</mat-label>
+        <input type="text" matInput placeholder="quantidade..." formControlName="quantidade">
+        <mat-hint>Somente números inteiros</mat-hint>
+    </mat-form-field>
+
+    <mat-form-field appearance="fill" style="width: 70%;" class="field">
+    <mat-select placeholder="Qual tamanho do Produto?" formControlName="tamanho">
+        <mat-option *ngFor="let tamanho of tamanhos" [value]="tamanho">
+            {{ tamanho }}
+        </mat-option>
+    </mat-select>
+    </mat-form-field>
+
+    <div class="btn">
+        <button mat-raised-button color="primary" type="submit">Atualizar Estoque</button>
+    </div>
+
+</form>
+
+<div class="btn2">
+    <button mat-raised-button color="warn" (click)="changeState()">Reduzir Estoque</button>
+</div>
+</mat-card>
+
+
+<mat-card class="container" *ngIf="nomeProduto && state === false">
+    <mat-card-title>Redução de estoque</mat-card-title>
+    
+    <h2>{{ nomeProduto }}</h2>
+    <form [formGroup]="formulario" (ngSubmit)="reduzirEstoque()">
+    
+        <mat-form-field appearance="fill" style="width: 70%;" class="field">
+            <mat-label>Quantidade</mat-label>
+            <input type="text" matInput placeholder="quantidade..." formControlName="quantidade">
+            <mat-hint>Somente números inteiros</mat-hint>
+        </mat-form-field>
+    
+        <mat-form-field appearance="fill" style="width: 70%;" class="field">
+        <mat-select placeholder="Qual tamanho do Produto?" formControlName="tamanho">
+            <mat-option *ngFor="let tamanho of tamanhos" [value]="tamanho">
+                {{ tamanho }}
+            </mat-option>
+        </mat-select>
+        </mat-form-field>
+    
+        <div class="btn">
+            <button mat-raised-button color="primary" type="submit">Reduzir Estoque</button>
+        </div>
+    
+    </form>
+    
+    <div class="btn2">
+        <button mat-raised-button color="warn" (click)="changeState()">Aumentar Estoque</button>
+    </div>
+    </mat-card>
