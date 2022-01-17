@@ -79,10 +79,10 @@ export class CarrinhoComponent implements OnInit {
   }
 
 
-  verificacaoEstoque(): void {
+  async verificacaoEstoque(): Promise<void> {
     this.verificado = true
 
-    this.carrinho.forEach((produto: any) => {
+   await this.carrinho.forEach((produto: any) => {
       this.opservice.verificacaoEstoque(produto)
           .subscribe((res: any) => {
             console.log(res)
