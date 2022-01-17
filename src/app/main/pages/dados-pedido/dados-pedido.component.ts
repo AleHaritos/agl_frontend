@@ -62,7 +62,7 @@ export class DadosPedidoComponent implements OnInit {
 
   }
 
-  finalizarPedido(): void {
+  async finalizarPedido(): Promise<void> {
 
     if(this.forms.value.cep.length === 8 && this.forms.value.numero !== '') {
       
@@ -70,7 +70,7 @@ export class DadosPedidoComponent implements OnInit {
 
       this.verificado = true
 
-      this.carrinho.forEach((produto: any) => {
+     await this.carrinho.forEach((produto: any) => {
         this.opservice.verificacaoEstoque(produto)
             .subscribe((res: any) => {
               console.log(res)
@@ -85,6 +85,8 @@ export class DadosPedidoComponent implements OnInit {
       })
   
       if(this.verificado === true) {
+
+      localStorage.removeItem('verificado')
       let carrinhoPaypal: { name: string; sku: number; price: number; currency: string; quantity: number; }[] = []
   
         this.carrinho.map((cart: Carrinho) => {

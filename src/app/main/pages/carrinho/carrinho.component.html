@@ -62,7 +62,7 @@
     <mat-divider class="divider"></mat-divider>
     <h3 class="valorTotal">VALOR TOTAL: {{ valorTotal | currency: 'BRL'}} + FRETE </h3>
 
-    <button mat-raised-button class="btnComprar" (click)="verificacaoEstoque()">Finalizar Compra</button>
+    <button mat-raised-button class="btnComprar" (click)="verificacaoEstoque()">{{ valueButton }}</button>
 </mat-card>
 
 

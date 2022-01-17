@@ -16,6 +16,7 @@ export class CarrinhoComponent implements OnInit {
   verificado!: boolean
   carrinho!: Carrinho[]
   valorTotal: number = 0
+  valueButton: string = 'Finalizar Compra'
 
   constructor(
     private opservice: OperacoesService,
@@ -81,8 +82,8 @@ export class CarrinhoComponent implements OnInit {
 
   async verificacaoEstoque(): Promise<void> {
     this.verificado = true
-
-   await this.carrinho.forEach((produto: any) => {
+    this.valueButton = 'Aguarde...'
+    await this.carrinho.forEach((produto: any) => {
       this.opservice.verificacaoEstoque(produto)
           .subscribe((res: any) => {
             console.log(res)
@@ -91,17 +92,21 @@ export class CarrinhoComponent implements OnInit {
             } else {
               this.verificado = false
               this.verificou = false
+              this.valueButton = 'Falta de estoque'
               this.opservice.snackBar(`${produto.nome} está sem estoque`, true)
             }
           })
         
     })
 
-    if(this.verificou === true) {
-    localStorage.setItem('valorTotal', this.valorTotal.toString())
-
-    this.router.navigate(['/dados-entrega'])
-    }
+    setTimeout(() => {
+      if(this.verificou === true) {
+        localStorage.setItem('valorTotal', this.valorTotal.toString())
+    
+        this.router.navigate(['/dados-entrega'])
+        }
+    }, 1000)
+    
 
   
     
