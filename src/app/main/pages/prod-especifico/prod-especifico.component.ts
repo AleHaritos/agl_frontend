@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { MatPaginator } from '@angular/material/paginator';
 import { Produto } from 'src/app/shared/produto.model';
 import { ProdutosService } from 'src/app/produtos.service';
 import { ActivatedRoute, Router } from '@angular/router';
@@ -14,6 +13,9 @@ export class ProdEspecificoComponent implements OnInit {
   verMais: boolean = true
   page: number = 1
   length!: number
+
+  color: any = 'blue'
+  height: number = 100
 
   // data: any = {
   //   count: 1,
@@ -33,7 +35,7 @@ export class ProdEspecificoComponent implements OnInit {
   ngOnInit(): void {
   this.route.params.subscribe((params: any) => {
     this.id = params.id
-    
+    this.height = 100
     this.page = 1
     this.verMais = true
 
@@ -48,14 +50,19 @@ export class ProdEspecificoComponent implements OnInit {
 
 paginacao(): void {
   this.page +=1
+  this.height += 50
 
   this.pservice.getByTipoProduto(this.id , this.page)
     .subscribe((res: any) => {  
       
       if(res.length === 0) {
         this.verMais = false
+        this.height -= 50
       }
       
+      if(res.length >= 4) {
+        this.height +=100
+      }
 
       for(let i of res) {
         this.produtos.push(i)

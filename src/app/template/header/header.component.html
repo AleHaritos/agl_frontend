@@ -112,6 +112,6 @@
 </mat-toolbar>
 
 
-    <app-content [openSideNav]="openSideNav"></app-content>
+    <app-content [openSideNav]="openSideNav" (sub)="closeSideNav($event)"></app-content>
     
     <!-- <app-footer></app-footer> -->

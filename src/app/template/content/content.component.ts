@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { ProdutosService } from 'src/app/produtos.service';
 
 @Component({
@@ -11,6 +11,7 @@ export class ContentComponent implements OnInit {
   @Input() openSideNav!: boolean
 
   tiposProd!: any
+ @Output() sub: EventEmitter<boolean> = new EventEmitter<boolean>()
 
   constructor(
     private pservice: ProdutosService
@@ -21,6 +22,10 @@ export class ContentComponent implements OnInit {
       .subscribe((res: any) => {
           this.tiposProd = res
       })
+  }
+
+  closeSideNav(): void {
+    this.sub.emit(false)
   }
 
 }

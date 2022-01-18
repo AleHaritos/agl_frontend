@@ -1,6 +1,6 @@
 <div class="component">
 
-<div *ngIf="produtos !== undefined" class="container">
+<div *ngIf="produtos !== undefined" class="container" [style]="'height: ' + height + 'vh;'">
 
     <mat-card *ngFor="let produto of produtos" class="card" matRipple >
         <span *ngIf="produto.promocao === false">
@@ -45,12 +45,13 @@
 
 </span>
 </mat-card>
+    <div class="verMais" *ngIf="verMais">
+    <button mat-raised-button color="primary" class="btnVermais" (click)="paginacao()">Ver mais</button>
+    </div>
 </div>
 
 </div>
-<div class="verMais" *ngIf="verMais">
-    <button mat-raised-button color="primary" class="btnVermais" (click)="paginacao()">Ver mais</button>
-</div>
+
 
     
 

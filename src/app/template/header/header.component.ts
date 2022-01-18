@@ -94,6 +94,11 @@ export class HeaderComponent implements OnInit {
     this.estado = this.estado === 'padrao' ? 'clicado' : 'padrao'
   }
 
+  closeSideNav(event: boolean): void {
+    this.openSideNav = event
+    this.estado = this.estado === 'padrao' ? 'clicado' : 'padrao'
+  }
+
   pegarImagens(): void {
     for(let i of this.produtos) {
       this.pservice.getImagemUnica(i.id)

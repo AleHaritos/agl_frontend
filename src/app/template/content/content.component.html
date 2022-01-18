@@ -5,7 +5,7 @@
         
                 <span *ngFor="let tp of tiposProd">
         
-                    <mat-list-item class="itens" routerLink="/produtos/{{ tp.id }}" 
+                    <mat-list-item class="itens" (click)="closeSideNav()" routerLink="/produtos/{{ tp.id }}" 
                     routerLinkActive="active-list-item" matRipple>{{ tp.descricaoTipo }}</mat-list-item>
                     
                 </span>
