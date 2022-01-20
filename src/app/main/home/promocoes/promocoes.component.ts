@@ -128,10 +128,19 @@ backSlide(): void {
 // }
 
 monitorarTela(): void {
+  this.logicaMonitoracao()
   const body = document.querySelector("body")
 
   const observer = new ResizeObserver(entries => {
+    this.logicaMonitoracao()
+  })
   
+if(body) {
+  observer.observe(body)
+}
+}
+
+logicaMonitoracao(): void {
   if (window.matchMedia("(min-width: 0px) and ( max-width: 749px )").matches) {
 
     this.sizeScreen = '400'
@@ -162,9 +171,5 @@ monitorarTela(): void {
     }
     
   }
-})
-if(body) {
-  observer.observe(body)
-}
 }
 }

@@ -109,18 +109,11 @@ export class HeaderComponent implements OnInit {
   }
 
   homeResponsivo(): void {
+    this.logicaMonitoracao()
     const body = document.querySelector("body")
 
     const observer = new ResizeObserver(entries => {
-
-    if (window.matchMedia("(min-width: 0px) and (max-width: 1060px)").matches) {
-      this.responsive = true
-    }
-    
-    if (window.matchMedia("(min-width: 1061px)").matches) {
-      this.responsive = false
-      this.openSideNav = false
-    }
+      this.logicaMonitoracao()
   })
 
   if(body) {
@@ -128,6 +121,18 @@ export class HeaderComponent implements OnInit {
   }
 
   }
+
+
+logicaMonitoracao(): void {
+  if (window.matchMedia("(min-width: 0px) and (max-width: 1060px)").matches) {
+    this.responsive = true
+  }
+  
+  if (window.matchMedia("(min-width: 1061px)").matches) {
+    this.responsive = false
+    this.openSideNav = false
+  }
+}
 
 signOut(): void {
   this.authService.signOut()

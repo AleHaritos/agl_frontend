@@ -185,16 +185,11 @@ export class OfertasComponent implements OnInit {
  }
 
   monitorarTamanho(): void {
+    this.logicaMonitoracao()
     const body = document.querySelector("body")
 
     const observer = new ResizeObserver(entries => {
-      if (window.matchMedia("(min-width: 0px) and ( max-width: 1000px )").matches) {
-        this.responsive = true
-      }
-
-      if (window.matchMedia("(min-width: 1001px)").matches) {
-        this.responsive = false
-      }
+      this.logicaMonitoracao()
     })
 
     if(body) {
@@ -202,4 +197,14 @@ export class OfertasComponent implements OnInit {
     }
  }
   
+logicaMonitoracao(): void {
+  if (window.matchMedia("(min-width: 0px) and ( max-width: 1000px )").matches) {
+    this.responsive = true
+  }
+
+  if (window.matchMedia("(min-width: 1001px)").matches) {
+    this.responsive = false
+  }
+}
+
 }
