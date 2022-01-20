@@ -108,3 +108,70 @@ mat-icon {
 .barTitle {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
+
+@media(min-width: 0px) and (max-width: 400px) {
+    .card {
+        width: 150px;
+        height: 450px;
+    }
+
+    .div-container {
+        justify-content: center;
+    }
+
+    .title {
+        margin-top: 5px;
+        font-size: 1rem;
+    }
+
+    .valor h2 {
+        font-size: 1rem;
+        font-weight: 800;
+        color: red;
+        text-decoration: line-through;
+    }
+    
+    .valor h3 {
+        font-size: 0.9rem;
+        font-weight: 500;
+        padding-right: 10px;
+    }
+
+    .labelPromocao {
+        font-size: 1rem;
+    }
+
+    .valorPromocao h2 {
+        font-size: 1.2rem;
+        font-weight: 800;
+    }
+
+    mat-card-subtitle {
+        font-size: 0.8rem;
+    }
+}
+
+@media(max-width: 280px) {
+    .card {
+        width: 100px;
+        height: 450px;
+    }
+
+    .div-container {
+        justify-content: center;
+    }
+
+    .title {
+        margin-top: 5px;
+        font-size: 0.8rem;
+    }
+
+    .valor h2{
+        font-size: 1rem;
+        font-weight: 800;
+    }
+
+    mat-card-subtitle {
+        font-size: 0.6rem;
+    }
+}

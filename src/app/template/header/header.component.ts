@@ -61,7 +61,7 @@ export class HeaderComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-  setInterval(() => this.homeResponsivo(), 1000)  
+    this.homeResponsivo()
 
     this.authService.verificarAdmin()
       .then((res: any) => {
@@ -109,6 +109,9 @@ export class HeaderComponent implements OnInit {
   }
 
   homeResponsivo(): void {
+    const body = document.querySelector("body")
+
+    const observer = new ResizeObserver(entries => {
 
     if (window.matchMedia("(min-width: 0px) and (max-width: 1060px)").matches) {
       this.responsive = true
@@ -118,6 +121,12 @@ export class HeaderComponent implements OnInit {
       this.responsive = false
       this.openSideNav = false
     }
+  })
+
+  if(body) {
+    observer.observe(body)
+  }
+
   }
 
 signOut(): void {

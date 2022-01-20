@@ -28,7 +28,7 @@ export class PromocoesComponent implements OnInit {
       })
 
       //Monitorar tamanho da tela -- Responsividade para o carrosel --
-      setInterval(() => this.monitorarTela(), 1000)
+       this.monitorarTela()
   }
 
 
@@ -128,7 +128,10 @@ backSlide(): void {
 // }
 
 monitorarTela(): void {
- 
+  const body = document.querySelector("body")
+
+  const observer = new ResizeObserver(entries => {
+  
   if (window.matchMedia("(min-width: 0px) and ( max-width: 749px )").matches) {
 
     this.sizeScreen = '400'
@@ -159,5 +162,9 @@ monitorarTela(): void {
     }
     
   }
+})
+if(body) {
+  observer.observe(body)
+}
 }
 }

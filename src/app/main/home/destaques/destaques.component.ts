@@ -30,7 +30,7 @@ export class DestaquesComponent implements OnInit {
         
       })
       //Monitorar tamanho da tela -- Responsividade para o carrosel --
-      setInterval(() => this.monitorarTela(), 1000)
+       this.monitorarTela()
       
   }
 
@@ -127,7 +127,10 @@ export class DestaquesComponent implements OnInit {
   // }
 
   monitorarTela(): void {
- 
+    const body = document.querySelector("body")
+
+    const observer = new ResizeObserver(entries => {
+
     if (window.matchMedia("(min-width: 0px) and ( max-width: 749px )").matches) {
   
       this.sizeScreen = '400'
@@ -157,6 +160,11 @@ export class DestaquesComponent implements OnInit {
         this.sizeScreen = '1000'
       }
       
+    }
+  })
+
+   if(body) {
+    observer.observe(body)
     }
   }
 }
