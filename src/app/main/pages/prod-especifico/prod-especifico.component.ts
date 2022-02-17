@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { Produto } from 'src/app/shared/produto.model';
 import { ProdutosService } from 'src/app/produtos.service';
 import { ActivatedRoute, Router } from '@angular/router';
@@ -9,6 +9,8 @@ import { ActivatedRoute, Router } from '@angular/router';
   styleUrls: ['./prod-especifico.component.css']
 })
 export class ProdEspecificoComponent implements OnInit {
+
+  @Output() sub: EventEmitter<boolean> = new EventEmitter<boolean>()
 
   verMais: boolean = true
   page: number = 1
@@ -38,6 +40,8 @@ export class ProdEspecificoComponent implements OnInit {
     this.height = 100
     this.page = 1
     this.verMais = true
+
+    this.sub.emit(false)
 
     this.pservice.getByTipoProduto(this.id , this.page)
     .subscribe((res: any) => {

@@ -15,6 +15,7 @@ export class SearchComponent implements OnInit {
   length!: number
   termo!: string
 
+  height: number = 100
   id!: number
   produtos!: Produto[]
 
@@ -31,13 +32,12 @@ export class SearchComponent implements OnInit {
 
       this.page = 1
       this.verMais = true
-  
+      this.height = 100
       this.termo = res.termo
 
       this.pservice.whereLikePage(this.termo, this.page)
       .subscribe((res: any) => {
-        this.produtos = res
-        
+        this.produtos = res       
       }) 
     })
    
@@ -46,19 +46,24 @@ export class SearchComponent implements OnInit {
 
 paginacao(): void {
   this.page +=1
+  this.height += 50
 
   this.pservice.whereLikePage(this.termo, this.page)
     .subscribe((res: any) => {  
       
       if(res.length === 0) {
         this.verMais = false
+        this.height -= 50
       }
       
+      if(res.length >= 4) {
+        this.height +=100
+      }
 
       for(let i of res) {
         this.produtos.push(i)
       }
-
+      
   })
 }
 

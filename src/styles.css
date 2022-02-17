@@ -19,3 +19,20 @@ body {
     background-color: rgba(37, 175, 37, 0.842);
     color: #d9d9d9;
 }
+
+::-webkit-scrollbar-track {
+    background-color: #a19d9dde;
+}
+::-webkit-scrollbar {
+    width: 7px;
+}
+::-webkit-scrollbar-thumb {
+    background: rgba(126, 125, 126, 0.993);
+    border-radius: 15px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    /* background: rgba(80, 78, 80, 0.993); */
+    background-color: #851212;
+}
+

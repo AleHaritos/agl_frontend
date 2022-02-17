@@ -207,3 +207,30 @@ mat-option {
     }
 
 }
+
+@media(min-height: 885px) {
+
+    img {
+        height: 12vh;
+    }
+
+    .icon {
+        font-size: 5vh;
+    }
+    .menuIcon {
+        font-size: 5vh;
+    }
+}
+
+@media(max-height: 885px) {
+    img {
+        height: 12vh;
+    }
+
+    .icon {
+        font-size: 5vh;
+    }
+    .menuIcon {
+        font-size: 5vh;
+    }
+}
