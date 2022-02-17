@@ -1,3 +1,4 @@
+import { animate, keyframes, state, style, transition, trigger } from '@angular/animations';
 import { Component, OnInit } from '@angular/core';
 import { ProdutosService } from 'src/app/produtos.service';
 import { Produto } from 'src/app/shared/produto.model';
@@ -6,6 +7,26 @@ import { Produto } from 'src/app/shared/produto.model';
   selector: 'app-destaques',
   templateUrl: './destaques.component.html',
   styleUrls: ['./destaques.component.css'],
+  animations: [ trigger('cardslide', [
+    state('show', style({ opacity: 1 })),
+    transition('void => show', [ style({ opacity: 0, transform:'translate(160px, 0px)'}), animate('1.5s', keyframes([
+      style({ offset: 0.10, transform: 'translateX(120px)', opacity: 0.5 }),
+      style({ offset: 0.30, transform: 'translateX(100px)', opacity: 0.7 }),
+      style({ offset: 0.50, transform: 'translateX(80px)', opacity: 0.7 }),
+      style({ offset: 0.70, transform: 'translateX(50px)', opacity: 0.8 }),
+      style({ offset: 0.80, transform: 'translateX(20px)', opacity: 0.9 }),
+      style({ offset: 0.90, transform: 'translateX(0px)', opacity: 1 })
+    ]))]),
+    transition('void => showback', [ style({ opacity: 0, transform:'translate(-160px, 0px)'}), animate('1.5s', keyframes([
+      style({ offset: 0.10, transform: 'translateX(-120px)', opacity: 0.5 }),
+      style({ offset: 0.30, transform: 'translateX(-100px)', opacity: 0.7 }),
+      style({ offset: 0.50, transform: 'translateX(-80px)', opacity: 0.7 }),
+      style({ offset: 0.70, transform: 'translateX(-50px)', opacity: 0.8 }),
+      style({ offset: 0.80, transform: 'translateX(-20px)', opacity: 0.9 }),
+      style({ offset: 0.90, transform: 'translateX(-0px)', opacity: 1 })
+    ]))])
+   
+  ])]
 })
 export class DestaquesComponent implements OnInit {
 
@@ -16,6 +37,7 @@ export class DestaquesComponent implements OnInit {
   back!: number
 
   produtos!: Produto[]
+  state: string = 'show'
 
   constructor(
     private produtosService: ProdutosService
@@ -36,6 +58,7 @@ export class DestaquesComponent implements OnInit {
 
 //Avançar o carrosel de destaques
   slideForward(): void {
+    this.state = 'show'
     if(this.sizeScreen === '400') {
       //Caso a tela for min-width 400px limitar para mostrar um item por vez
       if(this.fim < this.produtos.length) {
@@ -80,6 +103,7 @@ export class DestaquesComponent implements OnInit {
 
   //Voltar o carrosel de destaques
   backSlide(): void {
+    this.state = 'showback'
     if(this.sizeScreen === '400') {
       if(this.inicio > 0) {
       this.inicio = this.inicio - 1
@@ -105,15 +129,16 @@ export class DestaquesComponent implements OnInit {
 
     if(this.sizeScreen === '1000') {
       if(this.inicio > 0) {
-
-        if(this.back !== 0)
-        this.inicio = this.inicio - this.back
-        this.fim = this.fim - this.back
-
-      } else if(this.inicio !== 0) {
-        this.inicio = this.inicio - 3
-        this.fim = this.fim - 3
-      }
+        if(this.back !== 0) {
+          this.inicio = this.inicio - this.back
+          this.fim = this.fim - this.back
+          this.back = 0   
+        }
+        else {
+          this.inicio = this.inicio - 3
+          this.fim = this.fim - 3
+        }
+      } 
     }
   }
 

@@ -6,7 +6,7 @@
 
 <div class="div-container" *ngIf="produtos">
     <mat-icon (click)="backSlide()">arrow_back_ios</mat-icon>
-<mat-card *ngFor="let produto of produtos | slice:inicio:fim; let i=index" class="card" matRipple >
+<mat-card *ngFor="let produto of produtos | slice:inicio:fim; let i=index" class="card" matRipple [@cardslide]="state">
     <mat-card-header class="cardHeader">
     <img class="imgCard" [src]="produto.url" alt="produto" mat-card-lg-image>
     </mat-card-header>
