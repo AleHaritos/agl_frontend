@@ -1,3 +1,3 @@
-//'http://localhost:3000
+//'https://agl-store.herokuapp.com'
 export const urlBackend = 'https://agl-store.herokuapp.com'
 

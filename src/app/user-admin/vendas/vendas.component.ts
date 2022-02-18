@@ -27,6 +27,7 @@ export class VendasComponent implements OnInit {
     this.route.params.subscribe((res: any) => {
       this.pvService.getVendasByIdPedido(res.id)
         .subscribe((res: any) => {
+          console.log(res)
           this.dataSource = new MatTableDataSource(res)
           setTimeout(() => this.dataSource.paginator = this.paginator)
         })
