@@ -6,14 +6,14 @@
     </span>
 
     <span>
-        <img routerLink="/" class="animate__animated animate__flip img_logo" src="../../../assets/logos//AGL-logo1.png" alt="logo">
+        <img routerLink="/" class="animate__animated animate__flip img_logo" src="../../../assets/logos//AGL-logo3.png" alt="logo">
     </span>
     
     <span class="pesquisa" *ngIf="responsive === false">
         <form [formGroup]="forms">
-            <mat-form-field class="campo">
+            <mat-form-field class="campo" appearance="outline">
                 <mat-label>Pesquise um Produto:</mat-label>
-                <input type="text" (keyup)="whereLike()" formControlName="termo"
+                <input class="inputCampo" type="text" (keyup)="whereLike()" formControlName="termo"
                  matInput placeholder="Nome do produto" [matAutocomplete]="auto">          
                      <mat-icon matSuffix class="search" (click)="search()">search</mat-icon>
                 <mat-autocomplete autoActiveFirstOption #auto="matAutocomplete">
@@ -88,7 +88,7 @@
     <form [formGroup]="forms">
         <mat-form-field class="campo">
             <mat-label>Pesquise um Produto:</mat-label>
-            <input type="text" (keyup)="whereLike()" formControlName="termo"
+            <input type="text" class="terceiraInput" (keyup)="whereLike()" formControlName="termo"
              matInput placeholder="Nome do produto" [matAutocomplete]="auto">
              <mat-icon matSuffix class="search" (click)="search()">search</mat-icon>
             <mat-autocomplete autoActiveFirstOption #auto="matAutocomplete">

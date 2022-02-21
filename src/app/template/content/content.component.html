@@ -1,6 +1,6 @@
    <mat-sidenav-container class="container">
 
-        <mat-sidenav class="sidenav" fixedInViewport="true" [opened]="openSideNav" mode="side" fixedTopGap="173">
+        <mat-sidenav class="sidenav" fixedInViewport="true" [opened]="openSideNav" mode="side" [fixedTopGap]="topGap">
             <mat-nav-list class="list" *ngIf="tiposProd">
         
                 <span *ngFor="let tp of tiposProd">

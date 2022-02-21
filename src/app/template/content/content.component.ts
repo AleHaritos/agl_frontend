@@ -7,25 +7,53 @@ import { ProdutosService } from 'src/app/produtos.service';
   styleUrls: ['./content.component.css']
 })
 export class ContentComponent implements OnInit {
+  topGap: string = '173'
 
   @Input() openSideNav!: boolean
 
   tiposProd!: any
- @Output() sub: EventEmitter<boolean> = new EventEmitter<boolean>()
+  @Output() sub: EventEmitter<boolean> = new EventEmitter<boolean>()
 
   constructor(
     private pservice: ProdutosService
   ) { }
 
   ngOnInit(): void {
+    this.resizeTopGap()
     this.pservice.getTipoProd()
       .subscribe((res: any) => {
-          this.tiposProd = res
+        this.tiposProd = res
       })
   }
 
   closeSideNav(): void {
     this.sub.emit(false)
+  }
+
+  resizeTopGap(): void {
+    const body = document.querySelector("body")
+
+    const observer = new ResizeObserver(entries => {
+
+      if (window.matchMedia("(min-height: 705px) and ( max-height: 825px )").matches) {
+          this.topGap = '153'
+      }
+      if (window.matchMedia("(min-height: 600px) and ( max-height: 704px )").matches) {
+          this.topGap = '133'
+      }
+      if (window.matchMedia("(min-height: 480px) and ( max-height: 599px )").matches) {
+          this.topGap = '113'
+      }
+      if (window.matchMedia("(min-height: 0px) and ( max-height: 479px )").matches) {
+          this.topGap = '93'
+      }
+
+    })
+
+    if (body) {
+      observer.observe(body)
+    }
+
   }
 
 }

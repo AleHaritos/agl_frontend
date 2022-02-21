@@ -65,7 +65,6 @@ export class OperacoesService {
     })
     
     if(found) {
-      console.log(found)
       found.quantidade +=1
 
       let jsonCart = JSON.stringify(this.carrinhoArray)

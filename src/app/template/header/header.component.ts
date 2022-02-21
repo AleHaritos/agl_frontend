@@ -52,7 +52,8 @@ export class HeaderComponent implements OnInit {
 
   openSideNav: boolean = false
   estado: string = 'padrao'
-  color: string = 'rgba(153, 58, 58, 0.616)'
+  // color: string = 'rgba(153, 58, 58, 0.616)'
+  color: string = '#161616e7'
   constructor(
     private pservice: ProdutosService,
     private authService: AutenticacaoService,
