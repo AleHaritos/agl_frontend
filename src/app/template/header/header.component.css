@@ -37,15 +37,17 @@ a {
     align-self: center;
     box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;
     margin-bottom: 10px;
-    /* background-color: #d9d9d9; */
-    background-color: #c2c2c2;
+    background-color: #161616;
+    /* background-color: #c2c2c2; */
     position: sticky;
     top: 10vh;
     z-index: 20;
+    border-top: 1px solid #c2c2c221;
 }
 
 .itens {
-    border-right: 1px solid black;
+    color: #c2c2c2;
+    border-right: 1px solid #c2c2c221;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
@@ -64,8 +66,8 @@ a {
 }
 
 mat-divider {
-    background-color: black;
-    color: black;
+    background-color: #c2c2c221;
+    color: #c2c2c221;
     width: 100%;
     
 }
@@ -118,11 +120,12 @@ mat-option {
     align-self: center;
     box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;
     margin-bottom: 10px;
-    background-color: #d9d9d9;
+    background-color: #161616;
     position: sticky;
     top: 10vh;
     z-index: 999;
     height: auto;
+    border-top: 1px solid #c2c2c221;
 }
 
 .terceiraInput {
@@ -134,6 +137,18 @@ mat-option {
     text-decoration: none;
 }
 
+.icon:hover {
+    color: #FFF;
+}
+
+.itens:hover {
+    color: #FFF;
+    background-color: #737373;
+}
+
+.menuIcon:hover {
+    color: #FFF;
+}
 
 @media(max-width: 400px) {
     .img_logo {
