@@ -285,3 +285,13 @@ mat-option {
     }
 
 }
+
+@media(min-height: 1500px) {
+    .icon {
+        font-size: 3.4vh;
+    }
+    .menuIcon {
+        font-size: 3.4vh;
+    }
+
+}
