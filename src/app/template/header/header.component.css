@@ -288,10 +288,10 @@ mat-option {
 
 @media(min-height: 1500px) {
     .icon {
-        font-size: 3.4vh;
+        font-size: 30px;
     }
     .menuIcon {
-        font-size: 3.4vh;
+        font-size: 30px;
     }
 
 }
