@@ -207,7 +207,7 @@ mat-option {
 @media(min-width: 700px) and (max-width: 1060px) {
 
     .toolbar {
-        justify-content: space-between;
+        justify-content: space-around;
     }
 
     .img_logo {
@@ -261,10 +261,10 @@ mat-option {
     }
 
     .icon {
-        font-size: 5vh;
+        font-size: 30px;
     }
     .menuIcon {
-        font-size: 5vh;
+        font-size: 30px;
     }
 
     .campo {
@@ -282,16 +282,6 @@ mat-option {
     }
     .menuIcon {
         font-size: 20px;
-    }
-
-}
-
-@media(min-height: 1500px) {
-    .icon {
-        font-size: 30px;
-    }
-    .menuIcon {
-        font-size: 30px;
     }
 
 }
