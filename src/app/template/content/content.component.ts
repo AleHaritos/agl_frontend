@@ -35,17 +35,23 @@ export class ContentComponent implements OnInit {
 
     const observer = new ResizeObserver(entries => {
 
-      if (window.matchMedia("(min-height: 705px) and ( max-height: 825px )").matches) {
-          this.topGap = '153'
+      if (window.matchMedia("(min-height: 1001px) and ( max-height: 1200px )").matches) {
+        this.topGap = '203'
+      }
+      if (window.matchMedia("(min-height: 801px) and ( max-height: 1000px )").matches) {
+        this.topGap = '183'
+      }
+      if (window.matchMedia("(min-height: 705px) and ( max-height: 800px )").matches) {
+        this.topGap = '153'
       }
       if (window.matchMedia("(min-height: 600px) and ( max-height: 704px )").matches) {
-          this.topGap = '133'
+        this.topGap = '133'
       }
       if (window.matchMedia("(min-height: 480px) and ( max-height: 599px )").matches) {
-          this.topGap = '113'
+        this.topGap = '113'
       }
       if (window.matchMedia("(min-height: 0px) and ( max-height: 479px )").matches) {
-          this.topGap = '93'
+        this.topGap = '93'
       }
 
     })

@@ -1,6 +1,6 @@
 <div class="component">
 
-<div *ngIf="produtos !== undefined" class="container" [style]="'height: ' + height + 'vh;'">
+<div *ngIf="produtos !== undefined" class="container" [style]="'height: ' + height + 'px;'">
 
     <mat-card *ngFor="let produto of produtos" class="card" matRipple >
         <span *ngIf="produto.promocao === false">
