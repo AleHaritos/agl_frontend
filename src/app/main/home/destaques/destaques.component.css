@@ -1,6 +1,6 @@
 .bar {
     height: 100px;
-    background: url('../../../../assets/black_gif.gif');
+    background-color: #161616 ;
     display: flex;
     justify-content: center;
 }
@@ -70,13 +70,13 @@ mat-card-subtitle {
 }
 
 .btn{
-    background-color: black;
+    background-color: #161616;
     color: white;
     width: 100%;
 }
 
 .btn:hover {
-    color: black;
+    color: #000;
     background-color: white;
 }
 
