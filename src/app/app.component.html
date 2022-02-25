@@ -1,1 +1,11 @@
-<app-header></app-header>
+<div *ngIf="intro" class="intro">
+
+    <div class="container">
+        <img class="gifIntro" src="../assets/logos/ANIMACAO-LOGO.gif" alt="Intro">
+
+        <mat-progress-bar mode="determinate" [value]="valueBar" class="progress-bar"></mat-progress-bar>
+    </div>
+   
+
+</div>
+<app-header *ngIf="!intro"></app-header>

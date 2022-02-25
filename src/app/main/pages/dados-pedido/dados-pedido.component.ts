@@ -67,6 +67,7 @@ export class DadosPedidoComponent implements OnInit {
     if(this.forms.value.cep.length === 8 && this.forms.value.numero !== '') {
       
       localStorage.setItem('localEntrega',JSON.stringify({ cep: this.forms.value.cep, numero: this.forms.value.numero }))
+      localStorage.setItem('intro', 'false')
 
       this.verificado = true
 

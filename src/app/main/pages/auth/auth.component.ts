@@ -58,7 +58,7 @@ export class AuthComponent implements OnInit {
             .then((res: any) => {
               if(res === true) {
                 this.authService.snackBar('Login efetuado com sucesso!')
-                setTimeout(() => window.location.reload(), 1000)
+                // setTimeout(() => window.location.reload(), 1000)
                 localStorage.removeItem('cart')
                 this.router.navigate(['/'])
               }

@@ -39,6 +39,10 @@ import { SuccessComponent } from './main/pages/success/success.component';
 import { CancelComponent } from './main/pages/cancel/cancel.component';
 import { DadosPedidoComponent } from './main/pages/dados-pedido/dados-pedido.component'
 import { AuthComponent } from './main/pages/auth/auth.component';
+import { SearchComponent } from './main/pages/search/search.component';
+import { UserComponent } from './user/user.component';
+import { HistoricoPedidosComponent } from './user-admin/historico-pedidos/historico-pedidos.component';
+import { VendasComponent } from './user-admin/vendas/vendas.component';
 
 
 import { MatToolbarModule } from '@angular/material/toolbar'
@@ -64,10 +68,7 @@ import { MatSortModule } from '@angular/material/sort'
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { MatGridListModule } from '@angular/material/grid-list';
 import { MatRadioModule } from '@angular/material/radio';
-import { SearchComponent } from './main/pages/search/search.component';
-import { UserComponent } from './user/user.component';
-import { HistoricoPedidosComponent } from './user-admin/historico-pedidos/historico-pedidos.component';
-import { VendasComponent } from './user-admin/vendas/vendas.component';
+import { MatProgressBarModule } from '@angular/material/progress-bar'
 
 
 registerLocaleData(localePT, 'pt-BR')
@@ -99,7 +100,6 @@ registerLocaleData(localePT, 'pt-BR')
     UserComponent,
     HistoricoPedidosComponent,
     VendasComponent,
-   
     
   ],
   imports: [
@@ -131,7 +131,9 @@ registerLocaleData(localePT, 'pt-BR')
     MatSortModule,
     MatTooltipModule,
     MatGridListModule,
-    MatRadioModule
+    MatRadioModule,
+    MatProgressBarModule
+    
   ],
   providers: [AutenticacaoService, PedidosVendasService, EstoqueService, ProdutosService, OperacoesService, AuthUserService,
             { provide: LOCALE_ID, useValue: 'pt-BR'}],

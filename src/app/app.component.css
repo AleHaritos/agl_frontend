@@ -1,0 +1,57 @@
+.intro {
+    background-color: black;
+    height: 100vh;
+    width: 100%;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.gifIntro {
+    height: 400px;
+    /* position: absolute; */
+    /* top: 100px; */
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 200px;
+}
+
+.progress-bar {
+    position: relative;
+    top: -150px;
+    width: 290px;
+    height: 2px;
+    margin-top: 50px;
+}
+
+@media(min-width: 0px) and (max-width: 400px) {
+    .gifIntro {
+        height: 150px;
+    }
+
+    .progress-bar {
+        width: 100px;
+        /* top: -30px; */
+        top: -100px;
+        margin-top: 50px;
+    }
+
+    .container {
+        margin-bottom: 50px;
+    }
+}
+
+
+
+@media(max-height: 480px) {
+    .container {
+        margin-bottom: 0px;
+    }
+}

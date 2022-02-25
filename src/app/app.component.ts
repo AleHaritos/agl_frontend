@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import * as firebase from 'firebase/app'
-import { getAnalytics } from "firebase/analytics";
 
 @Component({
   selector: 'app-root',
@@ -9,9 +8,12 @@ import { getAnalytics } from "firebase/analytics";
 })
 export class AppComponent implements OnInit{
   title = 'frontend';
+  intro: boolean = true
+  valueBar: number = 0
 
   ngOnInit(): void {
-
+    this.showIntro()
+    
     const firebaseConfig = {
       apiKey: "AIzaSyDe1uRFfDo2bf2p09T8oIIZ4cjDFTFKp2k",
       authDomain: "agl-e-commerce.firebaseapp.com",
@@ -27,5 +29,25 @@ export class AppComponent implements OnInit{
   //  const getAnalitic = getAnalytics(app)
   }
 
+
+  showIntro(): void{
+    const haveIntro = localStorage.getItem('intro')
+    localStorage.removeItem('intro')
+    if(haveIntro === null) {
+     
+     let interval = setInterval(() => {
+        this.valueBar +=1 
+        if(this.valueBar == 100) {
+          window.clearInterval(interval)
+          this.intro = false
+        }
+      }, 40)
+      
+    } 
+    else {
+      this.intro = false
+    }
+      
+  }
   
 }
