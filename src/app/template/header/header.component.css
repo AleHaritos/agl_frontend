@@ -240,17 +240,32 @@ mat-option {
 }
 
 
-@media(min-height: 885px) {
+@media(min-height: 885px) and (max-width: 1250px) {
 
     img {
         height: 12vh;
     }
 
     .icon {
-        font-size: 5vh;
+        font-size: 2vw;
     }
     .menuIcon {
-        font-size: 5vh;
+        font-size: 2vw;
+    }
+
+}
+
+@media(min-height: 885px) and (min-width: 1250px) {
+
+    img {
+        height: 12vh;
+    }
+
+    .icon {
+        font-size: 3.5vh;
+    }
+    .menuIcon {
+        font-size: 3.5vh;
     }
 
 }
@@ -285,3 +300,4 @@ mat-option {
     }
 
 }
+

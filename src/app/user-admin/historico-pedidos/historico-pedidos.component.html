@@ -1,9 +1,32 @@
-<mat-card class="card" *ngIf="showTable === false">
+<mat-card class="card" *ngIf="showTable === false && showGraph === false">
     <mat-card-title class="title">Registros dos Pedidos</mat-card-title>
 
     <button class="btn" mat-raised-button color="primary" (click)="exibirTabela()">Exibir Tabela</button>
-</mat-card>
 
+    <mat-divider></mat-divider>
+
+    <form [formGroup]="forms" class="form" (ngSubmit)="gerarGrafico()">
+    <mat-form-field appearance="fill" class="select">
+        <mat-label>Selecione o ano</mat-label>
+        <mat-select formControlName="yearSelected">
+          <mat-option *ngFor="let y of year" [value]="y">
+            {{ y }}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+
+    <mat-form-field appearance="fill" class="select2">
+        <mat-label>Tipo do gráfico</mat-label>
+        <mat-select  formControlName="typeGraph">
+          <mat-option *ngFor="let t of types" [value]="t.value">
+            {{ t.label }}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+
+    <button class="btn3" mat-raised-button color="primary" type="submit">Exibir Gráfico</button>
+  </form>
+</mat-card>
 
 
 <div *ngIf="showTable">
@@ -65,4 +88,12 @@
                        showFirstLastButtons 
                        aria-label="Selecione a página dos pedidos">
     </mat-paginator>
+
+    <button class="btn2" mat-raised-button color="primary" (click)="voltar()">Voltar</button>
     </div>
+
+   
+    <div style="height: 700px;" [ngClass]="visible">
+      <canvas #canvas id="myChart"></canvas>
+  </div>
+  <button class="btn4" mat-raised-button color="primary" (click)="destroyGraph()" *ngIf="showGraph">Voltar</button>

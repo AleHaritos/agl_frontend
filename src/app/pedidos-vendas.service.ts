@@ -78,6 +78,14 @@ export class PedidosVendasService {
       )
   }
 
+  getPedidosWhereLikeYear(year: any): Observable<Pedido[]> {
+    return this.http.get(`${global.urlBackend}/pedidos-ano/${year}`)
+      .pipe(
+        retry(3),
+        map((res:any) => res),
+        catchError((e: any) => this.errorHandler(e))
+      )
+  }
 
 
  openSnackBar(msg: string, error: boolean = false): void {

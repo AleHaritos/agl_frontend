@@ -41,8 +41,11 @@ export class ContentComponent implements OnInit {
       if (window.matchMedia("(min-height: 801px) and ( max-height: 1000px )").matches) {
         this.topGap = '183'
       }
-      if (window.matchMedia("(min-height: 705px) and ( max-height: 800px )").matches) {
-        this.topGap = '153'
+      if (window.matchMedia("(min-height: 821px) and ( max-height: 999px )").matches) {
+        this.topGap = '193'
+      }
+      if (window.matchMedia("(min-height: 705px) and ( max-height: 820px )").matches) {
+        this.topGap = '158'
       }
       if (window.matchMedia("(min-height: 600px) and ( max-height: 704px )").matches) {
         this.topGap = '133'
